@@ -4,6 +4,7 @@ import cors from 'cors';
 import cookieParser from 'cookie-parser';
 import { config, globalData } from './config/env';
 import authRoutes from './routes/auth.routes';
+import fileRoutes from './routes/file.routes';
 import { initDb } from './config/db';
 import { globalErrorHandler } from './middlewares/error.middleware';
 
@@ -18,6 +19,7 @@ app.use('/uploads', express.static('uploads'));
 
 // Routes
 app.use('/api/auth', authRoutes);
+app.use('/api/files', fileRoutes);
 
 app.use(globalErrorHandler);
 
