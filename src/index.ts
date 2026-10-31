@@ -2,9 +2,10 @@ import "reflect-metadata";
 import express from 'express';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
-import { config, globalData } from './config/env';
+import { config } from './config/env';
 import authRoutes from './routes/auth.routes';
 import fileRoutes from './routes/file.routes';
+import newsRoutes from './routes/news.routes';
 import { initDb } from './config/db';
 import { globalErrorHandler } from './middlewares/error.middleware';
 
@@ -20,6 +21,7 @@ app.use('/uploads', express.static('uploads'));
 // Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/files', fileRoutes);
+app.use('/api/news', newsRoutes);
 
 app.use(globalErrorHandler);
 
